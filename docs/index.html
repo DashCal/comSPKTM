@@ -5,426 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页 | SparkTime 这会儿有空 - 现在有空吗，一起散散步？| SparkTime Podcast 这会儿有空 播客 | LocalWu - Passion Drives. 热爱使燃。</title>
+    <meta name="description"
+        content="SparkTime Podcast 这会儿有空 播客 | 现在有空吗，一起散散步？轻松但不扯闲篇，咱们聊点有意义的。12年好友，在对话中见面，探讨思考，折射自我。这里是我们，我们步履不停。">
+    <meta name="keywords" content="Spark Time SparkTime 这会儿有空 LocalWu LydiaJ 播客 阅读 讨论 分享 探讨">
+    <link rel="preconnect" href="https://static.localwu.com/">
+    <link rel="preconnect" href="https://localwu.com/">
     <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="./asset/static/basss/v0.1.1/basss.css">
-    <style>
-        :root {
-            /* --color-second: #fe9a; */
-
-            --color-text: #211;
-            --color-bg: #fffcf8;
-            --color-primary: #c51;
-            --color-on-primary: #fed;
-            --color-primary-hover: #d62;
-            --color-focus: #921;
-            --hero-opacity: 1;
-
-            --color-dark-text: #ddd;
-            --color-dark-bg: #111308;
-            --color-dark-primary: #c51c;
-            --color-dark-on-primary: #fed;
-            --color-dark-primary-hover: #d62d;
-            --color-dark-focus: #c30;
-            --hero-dark-opacity: 0.8;
-            --hero-mask-ratio: 0%;
-
-            font-feature-settings: var(--font-feature-style),
-                'cv11' 0;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --color-text: var(--color-dark-text);
-                --color-bg: var(--color-dark-bg);
-                --color-primary: var(--color-dark-primary);
-                --color-on-primary: var(--color-dark-on-primary);
-                --color-primary-hover: var(--color-dark-primary-hover);
-                --color-focus: var(--color-dark-focus);
-                --hero-opacity: var(--hero-dark-opacity);
-            }
-        }
-
-        [data-theme="dark"] {
-            --color-text: var(--color-dark-text);
-            --color-bg: var(--color-dark-bg);
-            --color-primary: var(--color-dark-primary);
-            --color-on-primary: var(--color-dark-on-primary);
-            --color-primary-hover: var(--color-dark-primary-hover);
-            --color-focus: var(--color-dark-focus);
-            --hero-opacity: var(--hero-dark-opacity);
-        }
-
-        * {
-            transition: color var(--trans-quick), background var(--trans-move);
-        }
-
-        :root {
-            --env-mrgtop: 0rem;
-            --env-padding: 2rem;
-            --env-gap: 2rem;
-            --env-max-width: 75rem;
-        }
-
-        ::selection {
-            background-color: var(--color-primary-hover);
-            color: var(--color-on-primary);
-        }
-
-        .app-container {
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            padding: 0 var(--env-padding);
-            /* padding-top: var(--env-mrgtop); */
-            gap: var(--env-gap);
-        }
-
-        .header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        ribbon {
-            width: 100%;
-            padding: 0;
-            /* margin-bottom: var(--env-gap); */
-            /* background-color: #fff; */
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            border-radius: var(--radius-m);
-            color: var(--color-primary);
-            padding: var(--env-padding);
-        }
-
-        .ribbon-wrap {
-            width: 100%;
-            height: 100%;
-            max-width: 75rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem 1.5rem;
-        }
-
-        .title {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            /* flex-wrap: wrap; */
-            gap: .5rem;
-            font-size: 2rem;
-            line-height: 2rem;
-            /* max-width: 40vw; */
-        }
-
-        .menu {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            flex-wrap: wrap;
-            /* background-color: var(--color-primary); */
-            color: white;
-            gap: 1rem;
-            flex: 1;
-        }
-
-        .menu a {
-            text-decoration: none;
-            word-break: keep-all;
-        }
-
-        .hero {
-            width: 100%;
-            height: 40rem;
-            background-color: var(--color-primary);
-            border-radius: 0 0 var(--radius-m) var(--radius-m);
-            opacity: var(--hero-opacity);
-            transition: opacity var(--trans-slow);
-        }
-
-        main {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: var(--env-gap);
-        }
-
-        section {
-            width: 100%;
-            /* padding: .75rem 1.5rem 1.5rem 1.25rem; */
-            /* border: 1px dashed var(--color-border); */
-            border-radius: var(--radius-m);
-        }
-
-        section h2 {
-            margin-top: 0;
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        footer a {
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: inherit;
-            text-decoration: underline;
-        }
-
-        footer span .span-btn {
-            padding: .2rem .25rem;
-            border-radius: var(--radius);
-            cursor: pointer;
-        }
-
-        footer span .span-btn:not(.btn-active):hover {
-            background: var(--color-primary-hover);
-        }
-
-        footer span .btn-active {
-            /* border: var(--color-on-primary) .1rem solid; */
-            background: var(--color-on-primary);
-            color: var(--color-primary);
-        }
-
-        /* 定义抖动动画 */
-        @keyframes shake {
-
-            10%,
-            90% {
-                transform: translate3d(-1px, 0, 0);
-            }
-
-            20%,
-            80% {
-                transform: translate3d(+2px, 0, 0);
-            }
-
-            30%,
-            70% {
-                transform: translate3d(-4px, 0, 0);
-            }
-
-            40%,
-            60% {
-                transform: translate3d(+4px, 0, 0);
-            }
-
-            50% {
-                transform: translate3d(-4px, 0, 0);
-            }
-        }
-
-        @keyframes mild-shake {
-
-            10%,
-            90% {
-                transform: translate3d(2px, 1px, 0) scale(1.11);
-            }
-
-            30%,
-            70% {
-                transform: translate3d(-6px, 2px, 0) scale(1.12);
-            }
-
-            50% {
-                transform: translate3d(-10px, 4px, 0) scale(1.12);
-            }
-        }
-
-        @keyframes drop-in {
-
-            10% {
-                transform: scale(1.2);
-            }
-
-            50% {
-                transform: scale(1.12);
-            }
-
-            90% {
-                transform: scale(1.112);
-            }
-        }
-
-        /* 应用抖动动画 */
-        .shake:hover {
-            animation: shake 800ms ease-in-out;
-        }
-
-        @media screen {
-            :root {
-                --env-padding: 2rem;
-                --env-gap: 3rem;
-            }
-
-            ribbon {
-                /* max-width: 75rem; */
-            }
-
-            main {
-                max-width: 75rem;
-            }
-        }
-
-        @media screen and (max-width: 6100px) {
-            :root {
-                --hero-mask-ratio: 16%;
-            }
-        }
-
-
-        @media screen and (max-width: 5200px) {
-            :root {
-                --hero-mask-ratio: 24%;
-            }
-        }
-
-        @media screen and (max-width: 4500px) {
-            :root {
-                --hero-mask-ratio: 29%;
-            }
-        }
-
-        @media screen and (max-width: 4100px) {
-            :root {
-                --hero-mask-ratio: 32%;
-            }
-        }
-
-        @media screen and (max-width: 3700px) {
-            :root {
-                --hero-mask-ratio: 35%;
-            }
-        }
-
-        @media screen and (max-width: 3300px) {
-            :root {
-                --hero-mask-ratio: 39%;
-            }
-        }
-
-        @media screen and (max-width: 2900px) {
-            :root {
-                --hero-mask-ratio: 44%;
-            }
-        }
-
-        @media screen and (max-width: 2500px) {
-            :root {
-                --hero-mask-ratio: 50%;
-            }
-        }
-
-        @media screen and (max-width: 2100px) {
-            :root {
-                --hero-mask-ratio: 58%;
-            }
-        }
-
-        @media screen and (max-width: 1800px) {
-            :root {
-                --hero-mask-ratio: 67%;
-            }
-        }
-
-        @media screen and (max-width: 1400px) {
-            :root {
-                --hero-mask-ratio: 76%;
-            }
-        }
-
-        @media screen and (max-width: 1000px) {
-            :root {
-                --hero-mask-ratio: 80%;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            :root {
-                --env-padding: 1.5rem;
-                --env-gap: 2.5rem;
-            }
-        }
-
-        @media screen and (max-width: 580px) {
-            :root {
-                --font-size: 15px;
-            }
-        }
-
-        @media screen and (max-width: 500px) {
-            :root {
-                --font-size: 14px;
-            }
-        }
-
-        @media screen and (max-width: 420px) {}
-
-        @media screen and (max-width: 380px) {
-            :root {
-                --font-size: 13px;
-                --env-padding: 2rem;
-                --env-gap: 3rem;
-            }
-        }
-    </style>
-
+    <link rel="icon" type="image/png" sizes="64x64" href="static/branding/icon/icon-main-small.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="static/branding/icon/icon-main.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="static/branding/icon/icon-main-medium.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/branding/icon/icon-main-large.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/branding/apple-touch-icon/icon-main-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="static/branding/apple-touch-icon/icon-main-167.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="static/branding/apple-touch-icon/icon-main-152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="static/branding/apple-touch-icon/icon-main-120.png">
+    <link rel="stylesheet" href="https//rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="static/basss/v0.1.1/basss.css">
+    <link rel="stylesheet" href="page/index/style.css">
     <script>
-        // ... existing code ...
-        const html = document.documentElement;
+        (function () {
+            // 判断是否为本地开发环境
+            const isLocalDev = ['localhost', '127.0.0.1', '::1'].includes(location.hostname) || location.hostname.endsWith('.local');
 
-        // 从 localStorage 获取保存的主题偏好，默认为 'system'
-        const savedTheme = localStorage.getItem('themePreference') || 'sys';
+            if (isLocalDev) {
+                const sizes = ['64x64', '128x128', '256x256', '512x512'];
+                const suffixes = ['-small', '', '-medium', '-large'];
 
-        function setTheme(theme) {
-            // 移除所有 active 状态
-            document.querySelectorAll('#themeBtns span').forEach(btn => {
-                btn.classList.remove('btn-active');
-            });
+                // 移除原有的 icon 链接
+                const existingIcons = document.querySelectorAll('link[rel="icon"]');
+                existingIcons.forEach(icon => icon.remove());
 
-            // 设置新主题
-            if (theme === 'sys') {
-                html.removeAttribute('data-theme');
-            } else {
-                html.setAttribute('data-theme', theme);
+                // 添加开发专用图标（每种尺寸添加一次即可，无需重复两次）
+                sizes.forEach((size, i) => {
+                    const link = document.createElement('link');
+                    link.rel = 'icon';
+                    link.type = 'image/png';
+                    link.sizes = size;
+                    link.href = `static/branding/icon/icon-dev${suffixes[i]}.png`;
+                    document.head.appendChild(link);
+                });
             }
 
-            // 高亮对应按钮
-            document.getElementById(`${theme}ThemeBtn`).classList.add('btn-active');
+            const html = document.documentElement;
 
-            // 保存主题偏好到 localStorage
-            localStorage.setItem('themePreference', theme);
-        }
+            // 从 localStorage 获取保存的主题偏好，默认为 'system'
+            const savedTheme = localStorage.getItem('themePreference') || 'sys';
 
-        // 页面加载时应用保存的主题
+            function setTheme(theme) {
+                // 移除所有 active 状态
+                document.querySelectorAll('#themeBtns span').forEach(btn => {
+                    btn.classList.remove('btn-active');
+                });
 
-        // 绑定事件
-        window.addEventListener('load', () => {
-            setTheme(savedTheme);
-            document.getElementById('lightThemeBtn').addEventListener('click', () => setTheme('light'));
-            document.getElementById('darkThemeBtn').addEventListener('click', () => setTheme('dark'));
-            document.getElementById('sysThemeBtn').addEventListener('click', () => setTheme('sys'));
-        });
+                // 设置新主题
+                if (theme === 'sys') {
+                    html.removeAttribute('data-theme');
+                } else {
+                    html.setAttribute('data-theme', theme);
+                }
 
-        // ... existing code ...
+                // 高亮对应按钮
+                document.getElementById(`${theme}ThemeBtn`).classList.add('btn-active');
 
+                // 保存主题偏好到 localStorage
+                localStorage.setItem('themePreference', theme);
+            }
+
+            // 页面加载时应用保存的主题
+
+            // 绑定事件
+            window.addEventListener('load', () => {
+                setTheme(savedTheme);
+                document.getElementById('lightThemeBtn').addEventListener('click', () => setTheme('light'));
+                document.getElementById('darkThemeBtn').addEventListener('click', () => setTheme('dark'));
+                document.getElementById('sysThemeBtn').addEventListener('click', () => setTheme('sys'));
+            });
+        })();
     </script>
 </head>
 
@@ -438,13 +94,13 @@
                         ">
                     <!-- MASK-IMAGE 在极清宽屏下显示  圆形mask会漏图片边缘 注意响应式控制-->
                     <img style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 80rem; height: 100%;  object-fit: cover; "
-                        src="./asset/podcast/episode/ep-4/hero.png" alt="">
+                        src="asset/podcast/episode/ep-4/hero.jpg" alt="">
                     <img class="" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%) scale(1.1); width: 100%; max-width: 80rem; height: 100%; object-fit: cover;
                     -webkit-filter: blur(1rem) saturate(2.2) brightness(.9);
                     filter: blur(1rem) saturate(2.2) brightness(.9); 
                     -webkit-mask-image:radial-gradient(ellipse 200% 100% at 50% 100%,#c51 18%,#c51 24%,#c51a 32%,transparent 40%),linear-gradient(0deg,#c51,#c510 55%);
                     mask-image:radial-gradient(ellipse 200% 100% at 50% 100%,#c51 18%,#c51 24%,#c51a 32%,transparent 40%),linear-gradient(0deg,#c51,#c510 55%);
-                    " src="./asset/podcast/episode/ep-4/hero.png" alt="">
+                    " src="asset/podcast/episode/ep-4/hero.jpg" alt="">
 
                 </div>
 
@@ -456,7 +112,7 @@
                         <div class="ribbon-wrap" style="">
                             <a class="title select-none" href="/"
                                 style="font-weight: var(--font-light); font-style: italic; text-decoration: none;">
-                                <!-- <img src="./asset/branding/sparktime-flower.svg"
+                                <!-- <img src="static/branding/sparktime-flower.svg"
                         style="margin: 0; width: 2rem; height: 2rem; color: var(--color-primary);" alt=""> -->
                                 <svg style="display: inline-block; width: 2rem; height: 2rem; flex-shrink: 0; "
                                     width="190" height="190" viewBox="0 0 190 190" preserveAspectRatio="xMidYMid meet"
@@ -509,14 +165,14 @@
                                 style="width: 100%; height: fit-content; max-width: var(--env-max-width); display: flex; flex-direction: column; align-items: start; justify-content: space-between; gap: .5rem; --color-primary: var(--temp-b); --color-on-primary: var(--temp-a); --color-primary-hover: var(--temp-c);">
                                 <button style="z-index: 1;">前往 &nbsp;
                                     <div style="height: 1.2em; width: fit-content; background: var(--color-on-primary); 
-                                    -webkit-mask-image: url(https://static.xiaoyuzhoufm.com/brand-xyz/_next/static/images/single-logo-light-0acf8d9eac1e1b252714f8e16970e2e4.png);
-                                    mask-image: url(https://static.xiaoyuzhoufm.com/brand-xyz/_next/static/images/single-logo-light-0acf8d9eac1e1b252714f8e16970e2e4.png);
+                                    -webkit-mask-image: url(static/xiaoyuzhou/logo-mono-dark.png);
+                                    mask-image: url(static/xiaoyuzhou/logo-mono-dark.png);
                                     -webkit-mask-size: contain;mask-size: contain;
                                     -webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;
                                     /* mask-image: linear-gradient(to right, black, transparent); */
                                     ">
                                         <img style="height: 1.2em; opacity: 0;"
-                                            src="./asset/static/xiaoyuzhou/logo-mono-dark.png" alt="">
+                                            src="static/xiaoyuzhou/logo-mono-dark.png" alt="">
                                     </div>
                                     &nbsp; 收听 ↗
                                 </button>
@@ -706,29 +362,29 @@
                 <div class="project-groups select-none" id="projectGroups" data-probe-rinow="📍">
                     <div class="project-group" style="">
                         <a class="single-project" href="/park">
-                            <img src="./asset/park/logo/park-website.png" alt="">
+                            <img src="asset/park/logo/park-website.png" alt="">
                             <span class="name-en">Website</span>
                             <span class="name-zh">网站</span>
                         </a>
                         <a class="single-project" href="/page-stop">
-                            <img src="./asset/park/logo/park-pagestop.png" alt="">
+                            <img src="asset/park/logo/park-pagestop.png" alt="">
                             <span class="name-en">PageStop</span>
                             <span class="name-zh">翻页暂停</span>
                         </a>
                         <a class="single-project" href="/podcast">
-                            <img src="./asset/park/logo/park-podcast.png" alt="">
+                            <img src="asset/park/logo/park-podcast.png" alt="">
                             <span class="name-en">Podcast</span>
                             <span class="name-zh">播客</span>
                         </a>
                     </div>
                     <div class="project-group">
                         <a class="single-project" href="/on-the-way">
-                            <img src="./asset/park/logo/park-ontheway.png" alt="">
+                            <img src="asset/park/logo/park-ontheway.png" alt="">
                             <span class="name-en">OnTheWay</span>
                             <span class="name-zh">散步途中</span>
                         </a>
                         <a class="single-project" href="/newsletter">
-                            <img src="./asset/park/logo/park-newsletter.png" alt="">
+                            <img src="asset/park/logo/park-newsletter.png" alt="">
                             <span class="name-en">Newsletter</span>
                             <span class="name-zh">通讯简报</span>
                         </a>
@@ -945,13 +601,12 @@
                     <div class="single-episode">
                         <div class="episode-cover-side">
                             <a href="/podcast/episode/03">
-                                <img src="https://image.xyzcdn.net/FrCSlP_zwLvtgvssJCj6noYVw1ch.png@small" alt="">
+                                <img src="asset/podcast/episode/ep-3/cover.jpg" alt="">
                             </a>
                         </div>
                         <div class="episode-info">
                             <a class="upper" href="/podcast/episode/03">
-                                <img class="episode-cover"
-                                    src="https://image.xyzcdn.net/FrCSlP_zwLvtgvssJCj6noYVw1ch.png@small" alt="">
+                                <img class="episode-cover" src="asset/podcast/episode/ep-3/cover.jpg" alt="">
                                 <span class="episode-title">Ep.03 OpenClaw——抓虾🦞，还是闭着眼抓瞎？</span>
                             </a>
                             <div class="lower">
@@ -966,13 +621,12 @@
                     <div class="single-episode">
                         <div class="episode-cover-side">
                             <a href="/podcast/episode/02">
-                                <img src="https://image.xyzcdn.net/FnB40-VOBHqYwJk5r75FYZ_jIEm6.png@small" alt="">
+                                <img src="asset/podcast/episode/ep-2/cover.jpg" alt="">
                             </a>
                         </div>
                         <div class="episode-info">
                             <a class="upper" href="/podcast/episode/02">
-                                <img class="episode-cover"
-                                    src="https://image.xyzcdn.net/FnB40-VOBHqYwJk5r75FYZ_jIEm6.png@small" alt="">
+                                <img class="episode-cover" src="asset/podcast/episode/ep-2/cover.jpg" alt="">
                                 <span class="episode-title">Ep.02 都第二个本命年了🐴，生日我不想再装给别人看了...</span>
                             </a>
                             <div class="lower">
@@ -987,13 +641,12 @@
                     <div class="single-episode">
                         <div class="episode-cover-side">
                             <a href="/podcast/episode/01">
-                                <img src="https://image.xyzcdn.net/FrEyJIOswiCCYzj74BUffma3GwYb.png@small" alt="">
+                                <img src="asset/podcast/episode/ep-1/cover.jpg" alt="">
                             </a>
                         </div>
                         <div class="episode-info">
                             <a class="upper" href="/podcast/episode/01">
-                                <img class="episode-cover"
-                                    src="https://image.xyzcdn.net/FrEyJIOswiCCYzj74BUffma3GwYb.png@small" alt="">
+                                <img class="episode-cover" src="asset/podcast/episode/ep-1/cover.jpg" alt="">
                                 <span class="episode-title">Ep.01 白天不懂夜的黑🌚，熬夜人和早睡人的理解与互不理解。</span>
                             </a>
                             <div class="lower">
@@ -1328,7 +981,7 @@
                         style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: start; justify-content: center; padding: 1.5rem; border: #eee 1px solid; border-radius: var(--radius-m); gap: 1rem 0; background: #f8f8f8; overflow: hidden;">
                         <div class="memoji-under"
                             style="z-index: 1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                            <img style="" src="./asset/creator/local-wu/memoji-large.png" alt="">
+                            <img style="" src="asset/creator/local-wu/memoji-small.png" alt="">
                         </div>
                         <div class="memoji-mask"
                             style="z-index: 1; position: absolute; top: 0; left: 0;  width: 100%; height: 100%; border-radius: var(--radius-m); ">
@@ -1337,7 +990,7 @@
                             style="z-index: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 1rem;">
                             <div class="avatar"
                                 style="background-color: var(--color-focus); width: 3.5rem; height: 3.5rem; font-weight: var(--font-extrabold); color: var(--color-on-primary); border-radius: var(--radius-f); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                                <img src="https://image.xyzcdn.net/Ft2_o9eFphiMRQs4_x1w72ZAdb58.jpg@small" alt="">
+                                <img src="asset/creator/local-wu/avatar.jpg" alt="">
                             </div>
                             <div class="ids" style="display: flex; flex-direction: column;"><span
                                     style="font-size: var(--font-size-m); font-weight: var(--font-semibold);">LocalWu</span>
@@ -1366,7 +1019,7 @@
                         <div class="memoji-under"
                             style="z-index: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                             <img style="position: absolute; top: 0; left: 0; object-fit: contain; padding: calc(var(--env-padding)/2); margin-top: .75rem;"
-                                src="./asset/creator/lydia-j/memoji-large.png" alt="">
+                                src="asset/creator/lydia-j/memoji-small.png" alt="">
                         </div>
                         <div class="memoji-mask right"
                             style="z-index: 1; position: absolute; top: 0; left: 0;  width: 100%; height: 100%; border-radius: var(--radius-m); ">
@@ -1375,7 +1028,7 @@
                             style="z-index: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 1rem;">
                             <div class="avatar"
                                 style="background-color: var(--color-focus); width: 3.5rem; height: 3.5rem; font-weight: var(--font-extrabold); color: var(--color-on-primary); border-radius: var(--radius-f); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                                <img src="https://image.xyzcdn.net/FoXB8HUMOxQ7CVu-pgC_HO2-PKO0.jpg@small" alt="">
+                                <img src="asset/creator/lydia-j/avatar.jpg" alt="">
                             </div>
                             <div class="ids" style="display: flex; flex-direction: column;"><span
                                     style="font-size: var(--font-size-m); font-weight: var(--font-semibold);">LydiaJ</span>
