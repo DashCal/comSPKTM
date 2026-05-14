@@ -1,1 +1,1533 @@
-© 2026 这会儿有空™ SparkTime™. Presented by LocalWu & LydiaJ. All Rights Reserved.
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="./asset/static/basss/v0.1.1/basss.css">
+    <style>
+        :root {
+            /* --color-second: #fe9a; */
+
+            --color-text: #211;
+            --color-bg: #fffcf8;
+            --color-primary: #c51;
+            --color-on-primary: #fed;
+            --color-primary-hover: #d62;
+            --color-focus: #921;
+            --hero-opacity: 1;
+
+            --color-dark-text: #ddd;
+            --color-dark-bg: #111308;
+            --color-dark-primary: #c51c;
+            --color-dark-on-primary: #fed;
+            --color-dark-primary-hover: #d62d;
+            --color-dark-focus: #c30;
+            --hero-dark-opacity: 0.8;
+            --hero-mask-ratio: 0%;
+
+            font-feature-settings: var(--font-feature-style),
+                'cv11' 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --color-text: var(--color-dark-text);
+                --color-bg: var(--color-dark-bg);
+                --color-primary: var(--color-dark-primary);
+                --color-on-primary: var(--color-dark-on-primary);
+                --color-primary-hover: var(--color-dark-primary-hover);
+                --color-focus: var(--color-dark-focus);
+                --hero-opacity: var(--hero-dark-opacity);
+            }
+        }
+
+        [data-theme="dark"] {
+            --color-text: var(--color-dark-text);
+            --color-bg: var(--color-dark-bg);
+            --color-primary: var(--color-dark-primary);
+            --color-on-primary: var(--color-dark-on-primary);
+            --color-primary-hover: var(--color-dark-primary-hover);
+            --color-focus: var(--color-dark-focus);
+            --hero-opacity: var(--hero-dark-opacity);
+        }
+
+        * {
+            transition: color var(--trans-quick), background var(--trans-move);
+        }
+
+        :root {
+            --env-mrgtop: 0rem;
+            --env-padding: 2rem;
+            --env-gap: 2rem;
+            --env-max-width: 75rem;
+        }
+
+        ::selection {
+            background-color: var(--color-primary-hover);
+            color: var(--color-on-primary);
+        }
+
+        .app-container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 var(--env-padding);
+            /* padding-top: var(--env-mrgtop); */
+            gap: var(--env-gap);
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        ribbon {
+            width: 100%;
+            padding: 0;
+            /* margin-bottom: var(--env-gap); */
+            /* background-color: #fff; */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--radius-m);
+            color: var(--color-primary);
+            padding: var(--env-padding);
+        }
+
+        .ribbon-wrap {
+            width: 100%;
+            height: 100%;
+            max-width: 75rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+        }
+
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* flex-wrap: wrap; */
+            gap: .5rem;
+            font-size: 2rem;
+            line-height: 2rem;
+            /* max-width: 40vw; */
+        }
+
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            /* background-color: var(--color-primary); */
+            color: white;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .menu a {
+            text-decoration: none;
+            word-break: keep-all;
+        }
+
+        .hero {
+            width: 100%;
+            height: 40rem;
+            background-color: var(--color-primary);
+            border-radius: 0 0 var(--radius-m) var(--radius-m);
+            opacity: var(--hero-opacity);
+            transition: opacity var(--trans-slow);
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--env-gap);
+        }
+
+        section {
+            width: 100%;
+            /* padding: .75rem 1.5rem 1.5rem 1.25rem; */
+            /* border: 1px dashed var(--color-border); */
+            border-radius: var(--radius-m);
+        }
+
+        section h2 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        footer span .span-btn {
+            padding: .2rem .25rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+
+        footer span .span-btn:not(.btn-active):hover {
+            background: var(--color-primary-hover);
+        }
+
+        footer span .btn-active {
+            /* border: var(--color-on-primary) .1rem solid; */
+            background: var(--color-on-primary);
+            color: var(--color-primary);
+        }
+
+        /* 定义抖动动画 */
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(+2px, 0, 0);
+            }
+
+            30%,
+            70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(+4px, 0, 0);
+            }
+
+            50% {
+                transform: translate3d(-4px, 0, 0);
+            }
+        }
+
+        @keyframes mild-shake {
+
+            10%,
+            90% {
+                transform: translate3d(2px, 1px, 0) scale(1.11);
+            }
+
+            30%,
+            70% {
+                transform: translate3d(-6px, 2px, 0) scale(1.12);
+            }
+
+            50% {
+                transform: translate3d(-10px, 4px, 0) scale(1.12);
+            }
+        }
+
+        @keyframes drop-in {
+
+            10% {
+                transform: scale(1.2);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+
+            90% {
+                transform: scale(1.112);
+            }
+        }
+
+        /* 应用抖动动画 */
+        .shake:hover {
+            animation: shake 800ms ease-in-out;
+        }
+
+        @media screen {
+            :root {
+                --env-padding: 2rem;
+                --env-gap: 3rem;
+            }
+
+            ribbon {
+                /* max-width: 75rem; */
+            }
+
+            main {
+                max-width: 75rem;
+            }
+        }
+
+        @media screen and (max-width: 6100px) {
+            :root {
+                --hero-mask-ratio: 16%;
+            }
+        }
+
+
+        @media screen and (max-width: 5200px) {
+            :root {
+                --hero-mask-ratio: 24%;
+            }
+        }
+
+        @media screen and (max-width: 4500px) {
+            :root {
+                --hero-mask-ratio: 29%;
+            }
+        }
+
+        @media screen and (max-width: 4100px) {
+            :root {
+                --hero-mask-ratio: 32%;
+            }
+        }
+
+        @media screen and (max-width: 3700px) {
+            :root {
+                --hero-mask-ratio: 35%;
+            }
+        }
+
+        @media screen and (max-width: 3300px) {
+            :root {
+                --hero-mask-ratio: 39%;
+            }
+        }
+
+        @media screen and (max-width: 2900px) {
+            :root {
+                --hero-mask-ratio: 44%;
+            }
+        }
+
+        @media screen and (max-width: 2500px) {
+            :root {
+                --hero-mask-ratio: 50%;
+            }
+        }
+
+        @media screen and (max-width: 2100px) {
+            :root {
+                --hero-mask-ratio: 58%;
+            }
+        }
+
+        @media screen and (max-width: 1800px) {
+            :root {
+                --hero-mask-ratio: 67%;
+            }
+        }
+
+        @media screen and (max-width: 1400px) {
+            :root {
+                --hero-mask-ratio: 76%;
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            :root {
+                --hero-mask-ratio: 80%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            :root {
+                --env-padding: 1.5rem;
+                --env-gap: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 580px) {
+            :root {
+                --font-size: 15px;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            :root {
+                --font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 420px) {}
+
+        @media screen and (max-width: 380px) {
+            :root {
+                --font-size: 13px;
+                --env-padding: 2rem;
+                --env-gap: 3rem;
+            }
+        }
+    </style>
+
+    <script>
+        // ... existing code ...
+        const html = document.documentElement;
+
+        // 从 localStorage 获取保存的主题偏好，默认为 'system'
+        const savedTheme = localStorage.getItem('themePreference') || 'sys';
+
+        function setTheme(theme) {
+            // 移除所有 active 状态
+            document.querySelectorAll('#themeBtns span').forEach(btn => {
+                btn.classList.remove('btn-active');
+            });
+
+            // 设置新主题
+            if (theme === 'sys') {
+                html.removeAttribute('data-theme');
+            } else {
+                html.setAttribute('data-theme', theme);
+            }
+
+            // 高亮对应按钮
+            document.getElementById(`${theme}ThemeBtn`).classList.add('btn-active');
+
+            // 保存主题偏好到 localStorage
+            localStorage.setItem('themePreference', theme);
+        }
+
+        // 页面加载时应用保存的主题
+
+        // 绑定事件
+        window.addEventListener('load', () => {
+            setTheme(savedTheme);
+            document.getElementById('lightThemeBtn').addEventListener('click', () => setTheme('light'));
+            document.getElementById('darkThemeBtn').addEventListener('click', () => setTheme('dark'));
+            document.getElementById('sysThemeBtn').addEventListener('click', () => setTheme('sys'));
+        });
+
+        // ... existing code ...
+
+    </script>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="header hero" id="headerHeroy"
+            style="position: relative; --temp-0:#073; --temp-a:#0f8; --temp-b:#073; --temp-c:#184; --temp-d:#fff6; display: noney; overflow: hidden; --color-primary: var(--temp-a); --color-on-primary: var(--temp-b); --color-under:var(--temp-d);">
+            <div class="hero-1" style="position: relative; width: 100%; height: 100%; background-image: url();">
+                <div class="img-set select-forbidden" style=" position: relative; width: 100%; height: 100%; -webkit-mask-image: radial-gradient(circle at 50% 70%, #c51f 0%, #cf10 65%); mask-image: radial-gradient(circle at 50% 70%, #c51f 0%, #c510 var(--hero-mask-ratio)); 
+                        animation: mild-shake 10s ease-in-out infinite;
+                        ">
+                    <!-- MASK-IMAGE 在极清宽屏下显示  圆形mask会漏图片边缘 注意响应式控制-->
+                    <img style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 80rem; height: 100%;  object-fit: cover; "
+                        src="./asset/podcast/episode/ep-4/hero.png" alt="">
+                    <img class="" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%) scale(1.1); width: 100%; max-width: 80rem; height: 100%; object-fit: cover;
+                    -webkit-filter: blur(1rem) saturate(2.2) brightness(.9);
+                    filter: blur(1rem) saturate(2.2) brightness(.9); 
+                    -webkit-mask-image:radial-gradient(ellipse 200% 100% at 50% 100%,#c51 18%,#c51 24%,#c51a 32%,transparent 40%),linear-gradient(0deg,#c51,#c510 55%);
+                    mask-image:radial-gradient(ellipse 200% 100% at 50% 100%,#c51 18%,#c51 24%,#c51a 32%,transparent 40%),linear-gradient(0deg,#c51,#c510 55%);
+                    " src="./asset/podcast/episode/ep-4/hero.png" alt="">
+
+                </div>
+
+                <div class="upper-layer" style="position: absolute; top:0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
+                    justify-content: space-between;
+                    ">
+                    <ribbon class="ribbon"
+                        style="--color-primary: var(--temp-0); --color-on-primary: var(--temp-b); --color-primary-hover: var(--temp-c);">
+                        <div class="ribbon-wrap" style="">
+                            <a class="title select-none" href="/"
+                                style="font-weight: var(--font-light); font-style: italic; text-decoration: none;">
+                                <!-- <img src="./asset/branding/sparktime-flower.svg"
+                        style="margin: 0; width: 2rem; height: 2rem; color: var(--color-primary);" alt=""> -->
+                                <svg style="display: inline-block; width: 2rem; height: 2rem; flex-shrink: 0; "
+                                    width="190" height="190" viewBox="0 0 190 190" preserveAspectRatio="xMidYMid meet"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    overflow="hidden">
+                                    <g transform="translate(-545 -265)">
+                                        <path
+                                            d="M612 360C612 344.536 624.536 332 640 332 655.464 332 668 344.536 668 360 668 375.464 655.464 388 640 388 624.536 388 612 375.464 612 360Z"
+                                            fill="#FE9" fill-rule="evenodd" />
+                                        <path
+                                            d="M619.239 344.532C620.501 327.97 618.102 290.905 628.381 277.167 638.67 263.428 666.426 261.636 670.646 275.885 674.875 290.125 650.087 330.321 654.201 338.134 656.667 342.181 676.937 320.156 691.225 315.011 705.512 309.876 715.233 313.874 720.946 322.719 726.668 331.573 730.204 351.083 719.809 359.301 709.404 367.52 666.879 360.063 668.941 363.791 671.003 367.52 720.146 369.562 730.089 377.906 740.041 386.249 729.058 398.187 718.662 405.499 708.258 412.812 689.047 420.635 678.084 414.479 667.11 408.322 666.34 370.343 663.825 374.698 661.301 379.062 671.927 421.271 665.53 436.292 659.133 451.312 637.649 459.53 631.821 449.77 625.982 440.02 639.672 391.895 636.821 390.354 633.969 388.822 628.285 434.5 617.533 442.063 606.782 449.635 581.627 437.718 582.658 425.395 583.689 413.072 624.007 385.989 620.462 381.885 616.917 377.781 579.575 410.885 564.941 404.854 550.306 398.823 540.374 357.365 549.507 350.303 558.65 343.25 607.928 374.698 610.664 369.562 613.41 364.427 565.519 340.167 563.235 324.646 560.943 309.115 588.371 282.417 599.238 291.917 610.096 301.417 609.373 350.014 619.431 368.878 629.489 387.733 646.368 382.675 653.353 378.715 663.642 372.597 664.278 358.935 660.607 349.821 656.937 340.707 641.021 331.785 628.295 341.034 620.346 346.796 624.884 362.481 621.917 362.606 618.949 362.731 617.986 361.094 619.239 344.532Z"
+                                            fill="currentColor" fill-rule="evenodd" />
+                                    </g>
+                                </svg>
+                                <span
+                                    style="display: flex; flex-direction: row; flex-wrap: nowrap; font-style: oblique; letter-spacing: -.03em;">Sp<i
+                                        style="display: inline-block; width: fit-content; height: fit-content; font-style: normal; transform: skew(-10deg,0deg) translateX(.025em);">a</i>rkTime</span>
+                            </a>
+
+                            <!-- <div class="menu" style="font-weight: var(--font-bold); color: var(--temp-0);">
+                                <a href="/">Home 首页</a>
+                                <a href="/podcast">Podcast 播客</a>
+                                <a href="/on-the-way">OnTheWay 散步途中</a>
+                                <a href="/page-stop">PageStop 页面暂停</a>
+                                <a href="/newsletter">Newsletter 通讯简报</a>
+                                <a href="/about">About 关于我们</a>
+                            </div> -->
+                        </div>
+                    </ribbon>
+                    <div class="hero-center" id="headerHeroCursor"
+                        style="position: relative; width: 100%; flex-grow: 1; display: flex; flex-direction: column;">
+                        <a href="#">
+                            <div class="hero-center-ground"
+                                style="z-index: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-mask-image: radial-gradient(100% 200% at 50% 90%, #000f 35%, #0000 45%); mask-image: radial-gradient(100% 200% at 50% 90%, #000f 35%, #0000 45%);">
+
+                                <div class="header-hero-cursor-follower" id="headerHeroCursorFollower">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                                    </svg>
+                                </div>
+
+                            </div>
+                        </a>
+                        <div style="width: 100%; flex-grow: 1;">
+
+                        </div>
+                        <div
+                            style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 1.5rem 2rem;">
+                            <div
+                                style="width: 100%; height: fit-content; max-width: var(--env-max-width); display: flex; flex-direction: column; align-items: start; justify-content: space-between; gap: .5rem; --color-primary: var(--temp-b); --color-on-primary: var(--temp-a); --color-primary-hover: var(--temp-c);">
+                                <button style="z-index: 1;">前往 &nbsp;
+                                    <div style="height: 1.2em; width: fit-content; background: var(--color-on-primary); 
+                                    -webkit-mask-image: url(https://static.xiaoyuzhoufm.com/brand-xyz/_next/static/images/single-logo-light-0acf8d9eac1e1b252714f8e16970e2e4.png);
+                                    mask-image: url(https://static.xiaoyuzhoufm.com/brand-xyz/_next/static/images/single-logo-light-0acf8d9eac1e1b252714f8e16970e2e4.png);
+                                    -webkit-mask-size: contain;mask-size: contain;
+                                    -webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;
+                                    /* mask-image: linear-gradient(to right, black, transparent); */
+                                    ">
+                                        <img style="height: 1.2em; opacity: 0;"
+                                            src="./asset/static/xiaoyuzhou/logo-mono-dark.png" alt="">
+                                    </div>
+                                    &nbsp; 收听 ↗
+                                </button>
+                                <button id="themeReset" style="z-index: 1;">查看本期 Show Note</button>
+                            </div>
+                            <!-- <span
+                            style=" font-family: var(--font-geist-pixel-grid); font-size: 10rem; color: var(--temp-b);">04</span> -->
+                        </div>
+                    </div>
+                    <div
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 100%; height: fit-content; padding: 1.5rem 2rem; background: var(--color-under); border-top: var(--color-primary) .1rem solid;">
+                        <div class="hero-title"
+                            style=" width: 100%; max-width: var(--env-max-width); height: 100%; color: var(--color-on-primary); display: flex; flex-direction: column; align-items: start; justify-content: center;">
+                            <span style="
+                                        font-size: var(--font-size-h3);
+                                        font-weight: var(--font-semibold);
+                                        line-height: 1.5; 
+                                        margin-bottom: 1rem;
+                                        ">
+                                <span style="
+                                        font-size: 1rem; 
+                                        background-color: var(--color-on-primary); 
+                                        color: var(--color-primary); 
+                                        padding: .1rem 0.3rem; 
+                                        border-radius: var(--radius);
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        line-height: 1.5;
+                                    ">最新</span>
+                                <a href="/" style="vertical-align: middle; text-decoration: none;">Ep.04
+                                    一生都在做题的我们，吗喽🐒和S**T💩人格上线</a>
+                            </span>
+                            <small style="line-height: 1.75rem;">119分钟 &nbsp;|&nbsp; 2026-05-01 更新 &nbsp;|&nbsp;
+                                #心理 #测试 #MBTI</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .header-hero-cursor-follower {
+                    position: absolute;
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 50%;
+                    background: var(--color-under);
+                    filter: blur(.25rem);
+                    pointer-events: none;
+                    transform: translate(-50%, -50%);
+                    /* z-index: 1; */
+                    transition: opacity var(--trans-slow);
+                    color: var(--temp-a);
+                }
+            </style>
+            <!-- top var(--trans-slow), left var(--trans-slow),  -->
+            <script>
+                // 获取项目组容器和追光元素
+                const headerHeroCursor = document.getElementById('headerHeroCursor');
+                const headerHeroCursorFollower = document.getElementById('headerHeroCursorFollower');
+                let currentOpacity = '1';
+                let moveThreshold = 2;
+                let mouseX = 0;
+                let mouseY = 0;
+                // 鼠标移动事件
+                headerHeroCursor.addEventListener('mousemove', (e) => {
+                    if (e.target.tagName != 'DIV') {
+                        headerHeroCursorFollower.style.opacity = '0';
+                        currentOpacity = '0';
+                    } else {
+                        if (currentOpacity == '0') {
+                            headerHeroCursorFollower.style.opacity = '1';
+                            currentOpacity = '1';
+                        }
+                        // 获取容器相对于视口的位置
+                        const rect = headerHeroCursor.getBoundingClientRect();
+                        // 计算鼠标在容器内的相对位置
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+
+                        if (Math.abs(mouseX - x) > moveThreshold || Math.abs(mouseY - y) > moveThreshold) {
+                            mouseX = x;
+                            mouseY = y;
+                            // 更新追光元素的位置
+                            headerHeroCursorFollower.style.left = `${x}px`;
+                            headerHeroCursorFollower.style.top = `${y}px`;
+                        }
+
+                    }
+                });
+
+                headerHeroCursorFollower.style.opacity = '0';
+
+
+                // 鼠标进入容器时显示追光效果
+                headerHeroCursor.addEventListener('mouseenter', (e) => {
+                    headerHeroCursorFollower.style.opacity = '1';
+                });
+
+                // 鼠标离开容器时隐藏追光效果
+                headerHeroCursor.addEventListener('mouseleave', (e) => {
+                    headerHeroCursorFollower.style.opacity = '0';
+                });
+            </script>
+
+        </div>
+
+
+        <main style="display: noney">
+
+            <section class="section">
+                <div class="section-title" style="position: relative;">
+                    <h4 style="font-family: var(--font-serify); margin-bottom: .75rem;">🌺 SPKTM Park 有空公园</h4>
+                    <button class="small-btn"
+                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); border-radius: var(--radius-m);"><span>探索
+                            Park</span><span class="arrow">→</span></button>
+                </div>
+                <style>
+                    .project-groups {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 2rem;
+                        padding: 2rem 2rem;
+                        color: var(--color-on-primary);
+                        width: 100%;
+                        background: linear-gradient(0deg, #c51 0%, #fb8 100%);
+                        border-radius: var(--radius-m);
+                        position: relative;
+                        /* 为追光效果添加相对定位 */
+                        overflow: hidden;
+                        /* 防止追光效果溢出 */
+                        /* cursor: pointer; */
+                    }
+
+                    .project-group {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 2rem;
+                        /* width: 100%; */
+                    }
+
+                    .single-project {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 8vw;
+                        min-width: 7rem;
+                        flex: 0 1 auto;
+                        position: relative;
+                        /* 确保项目在追光层之上 */
+                        z-index: 2;
+                    }
+
+                    .single-project img {
+                        width: 6rem;
+                        margin-bottom: .5rem;
+                    }
+
+                    .name-en {
+                        font-size: var(--font-size-m);
+                        font-weight: var(--font-bold);
+                    }
+
+                    .project-groups a {
+                        text-decoration: none;
+                    }
+
+                    .project-groups a:hover {
+                        color: unset;
+                    }
+
+                    /* 追光效果的圆形 */
+                    .cursor-follower {
+                        position: absolute;
+                        width: 6rem;
+                        height: 6rem;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.45);
+                        pointer-events: none;
+                        transform: translate(-50%, -50%);
+                        z-index: 1;
+                        transition: transform var(--trans-slow), opacity var(--trans-slow);
+                    }
+                </style>
+                <div class="project-groups select-none" id="projectGroups" data-probe-rinow="📍">
+                    <div class="project-group" style="">
+                        <a class="single-project" href="/park">
+                            <img src="./asset/park/logo/park-website.png" alt="">
+                            <span class="name-en">Website</span>
+                            <span class="name-zh">网站</span>
+                        </a>
+                        <a class="single-project" href="/page-stop">
+                            <img src="./asset/park/logo/park-pagestop.png" alt="">
+                            <span class="name-en">PageStop</span>
+                            <span class="name-zh">翻页暂停</span>
+                        </a>
+                        <a class="single-project" href="/podcast">
+                            <img src="./asset/park/logo/park-podcast.png" alt="">
+                            <span class="name-en">Podcast</span>
+                            <span class="name-zh">播客</span>
+                        </a>
+                    </div>
+                    <div class="project-group">
+                        <a class="single-project" href="/on-the-way">
+                            <img src="./asset/park/logo/park-ontheway.png" alt="">
+                            <span class="name-en">OnTheWay</span>
+                            <span class="name-zh">散步途中</span>
+                        </a>
+                        <a class="single-project" href="/newsletter">
+                            <img src="./asset/park/logo/park-newsletter.png" alt="">
+                            <span class="name-en">Newsletter</span>
+                            <span class="name-zh">通讯简报</span>
+                        </a>
+                    </div>
+                    <!-- 追光效果的圆形元素 -->
+                    <div class="cursor-follower" id="cursorFollower"></div>
+                </div>
+
+                <script>
+                    // 获取项目组容器和追光元素
+                    const projectGroups = document.getElementById('projectGroups');
+                    const cursorFollower = document.getElementById('cursorFollower');
+
+                    // 鼠标移动事件
+                    projectGroups.addEventListener('mousemove', (e) => {
+                        // 获取容器相对于视口的位置
+                        const rect = projectGroups.getBoundingClientRect();
+                        // 计算鼠标在容器内的相对位置
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+
+                        // 更新追光元素的位置
+                        cursorFollower.style.left = `${x}px`;
+                        cursorFollower.style.top = `${y}px`;
+                    });
+
+                    cursorFollower.style.opacity = '0';
+
+
+                    // 鼠标进入容器时显示追光效果
+                    projectGroups.addEventListener('mouseenter', () => {
+                        cursorFollower.style.opacity = '1';
+                    });
+
+                    // 鼠标离开容器时隐藏追光效果
+                    projectGroups.addEventListener('mouseleave', () => {
+                        cursorFollower.style.opacity = '0';
+                    });
+                </script>
+
+                <style>
+                    .end-line {
+                        width: 100%;
+                        margin-top: .5rem;
+                        display: flex;
+                        justify-content: end;
+                    }
+
+                    .small-btn {
+                        padding: .35rem .5rem;
+                        font-size: var(--font-size-s);
+                        /* opacity: .8; */
+                    }
+
+                    .small-btn .arrow {
+                        width: 1.25rem;
+                        text-align: right;
+                        transition: width var(--trans-move);
+                    }
+
+                    .small-btn:hover .arrow {
+                        width: 2.25rem;
+                    }
+                </style>
+                <!-- <div class="end-line">
+                    <button class="small-btn"><span>探索 SPKTM Park</span><span class="arrow">→</span></button>
+                </div> -->
+            </section>
+            <section class="section" style="display: noney;">
+                <div class="section-title" style="position: relative;">
+                    <h4 style="font-family: var(--font-serify); margin-bottom: .75rem;">🎧 Podcasts 播客单集</h4>
+                    <button class="small-btn"
+                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); border-radius: var(--radius-m);"><span>全部单集</span><span
+                            class="arrow">→</span></button>
+                </div>
+
+                <style>
+                    .episode-group {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        width: 100%;
+                        gap: calc(var(--env-padding));
+                        /* 移除 height: 100% 和背景渐变中的高度相关属性 */
+                        /* background: linear-gradient(#f8f8f8 0%, #f8f8f8 40%, #fff 40.1%, #fff 100%);
+                        background-repeat: repeat-y;
+                        background-size: 100% 5px; */
+                        /* padding: 1rem 0; */
+                        border-radius: var(--radius-m);
+                        padding: calc(var(--env-padding)) 0;
+                        border: #eee .1rem solid;
+                    }
+
+                    .episode-group a {
+                        text-decoration: none;
+                    }
+
+                    .episode-group {
+                        --temp-a: #f8f8f8;
+                        --temp-b: #fff;
+                        --temp-dark-a: #222;
+                        --temp-dark-b: #0000;
+
+
+
+                        background-image: -webkit-linear-gradient(var(--temp-a) 0%, var(--temp-a) 40%, var(--temp-b) 40.1%, var(--temp-b) 100%);
+                        background-image: -moz-linear-gradient(var(--temp-a) 0%, var(--temp-a) 40%, var(--temp-b), var(--temp-b) 100%);
+                        background-image: -o-linear-gradient(var(--temp-a) 0%, var(--temp-a) 40%, var(--temp-b) 40.1%, var(--temp-b) 100%);
+                        background-image: linear-gradient(var(--temp-a) 0%, var(--temp-a) 40%, var(--temp-b) 40.1%, var(--temp-b) 100%);
+                        background-repeat: repeat-y;
+                        -webkit-background-size: 100%5px;
+                        -moz-background-size: 100% 5px;
+                        -o-background-size: 100% 5px;
+                        background-size: 100% 5px;
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    @media (prefers-color-scheme: dark) {
+                        :root:not([data-theme="light"]) .episode-group {
+                            --temp-a: var(--temp-dark-a);
+                            --temp-b: var(--temp-dark-b);
+                        }
+                    }
+
+                    [data-theme="dark"] {
+                        .episode-group {
+                            --temp-a: var(--temp-dark-a);
+                            --temp-b: var(--temp-dark-b);
+                        }
+                    }
+
+                    .single-episode {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: start;
+                        flex: 1;
+                        padding: 0 calc(var(--env-padding));
+                        border-radius: var(--radius);
+                        min-height: 15rem;
+                        min-width: 15rem;
+                        max-width: 22rem;
+                        gap: 1rem 0;
+                    }
+
+                    .single-episode .episode-info {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: start;
+                        gap: .5rem 0;
+                    }
+
+                    .single-episode img {
+                        width: 10rem;
+                        border-radius: var(--radius-s);
+                        box-shadow: 0px 5px 40px rgba(0, 0, 0, .2);
+                        margin: 0 auto;
+                        margin-bottom: 1.5rem;
+                    }
+
+                    .single-episode .episode-cover-side {
+                        display: none;
+                    }
+
+                    @media screen and (max-width: 768px) and (min-width: 365px) {
+                        .episode-group {
+                            flex-direction: column;
+                        }
+
+                        .single-episode {
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            min-width: unset;
+                            max-width: unset;
+                            min-height: 9rem;
+                        }
+
+                        .single-episode .episode-cover {
+                            display: none;
+                        }
+
+                        .single-episode .episode-cover-side {
+                            display: block;
+                            margin-right: 1rem;
+                            flex-shrink: 0;
+                            width: 8rem;
+                            height: 8rem;
+                        }
+                    }
+
+                    .single-episode span {
+                        font-size: var(--font-size-m);
+                        font-weight: var(--font-medium);
+                    }
+
+                    .single-episode .tags {
+                        cursor: pointer;
+                    }
+
+                    .single-episode .tag {
+                        font-size: var(--font-size-xs);
+                        font-weight: var(--font-medium);
+                        opacity: .7;
+                        padding: .1rem .2rem;
+                        border: var(--color-text) .1rem solid;
+                        border-radius: var(--radius-s);
+                    }
+                </style>
+
+                <div class="episode-group">
+                    <div class="single-episode">
+                        <div class="episode-cover-side">
+                            <a href="/podcast/episode/03">
+                                <img src="https://image.xyzcdn.net/FrCSlP_zwLvtgvssJCj6noYVw1ch.png@small" alt="">
+                            </a>
+                        </div>
+                        <div class="episode-info">
+                            <a class="upper" href="/podcast/episode/03">
+                                <img class="episode-cover"
+                                    src="https://image.xyzcdn.net/FrCSlP_zwLvtgvssJCj6noYVw1ch.png@small" alt="">
+                                <span class="episode-title">Ep.03 OpenClaw——抓虾🦞，还是闭着眼抓瞎？</span>
+                            </a>
+                            <div class="lower">
+                                <small style="line-height: 1.75rem;">57分钟 &nbsp;|&nbsp; 2026-04-01 更新</small>
+                                <div class="tags">
+                                    <a class="tag" href="/tag?tag=">#AI</a> <a class="tag" href="/tag?tag=">#FOMO</a> <a
+                                        class="tag" href="/tag?tag=">#反身性</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-episode">
+                        <div class="episode-cover-side">
+                            <a href="/podcast/episode/02">
+                                <img src="https://image.xyzcdn.net/FnB40-VOBHqYwJk5r75FYZ_jIEm6.png@small" alt="">
+                            </a>
+                        </div>
+                        <div class="episode-info">
+                            <a class="upper" href="/podcast/episode/02">
+                                <img class="episode-cover"
+                                    src="https://image.xyzcdn.net/FnB40-VOBHqYwJk5r75FYZ_jIEm6.png@small" alt="">
+                                <span class="episode-title">Ep.02 都第二个本命年了🐴，生日我不想再装给别人看了...</span>
+                            </a>
+                            <div class="lower">
+                                <small style="line-height: 1.75rem;">89分钟 &nbsp;|&nbsp; 2026-03-01 更新</small>
+                                <div class="tags">
+                                    <a class="tag" href="/tag?tag=">#生日</a> <a class="tag" href="/tag?tag=">#敏感</a> <a
+                                        class="tag" href="/tag?tag=">#本命年</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-episode">
+                        <div class="episode-cover-side">
+                            <a href="/podcast/episode/01">
+                                <img src="https://image.xyzcdn.net/FrEyJIOswiCCYzj74BUffma3GwYb.png@small" alt="">
+                            </a>
+                        </div>
+                        <div class="episode-info">
+                            <a class="upper" href="/podcast/episode/01">
+                                <img class="episode-cover"
+                                    src="https://image.xyzcdn.net/FrEyJIOswiCCYzj74BUffma3GwYb.png@small" alt="">
+                                <span class="episode-title">Ep.01 白天不懂夜的黑🌚，熬夜人和早睡人的理解与互不理解。</span>
+                            </a>
+                            <div class="lower">
+                                <small style="line-height: 1.75rem;">80分钟 &nbsp;|&nbsp; 2026-02-16 更新</small>
+                                <div class="tags">
+                                    <a class="tag" href="/tag?tag=">#睡眠</a> <a class="tag" href="/tag?tag=">#晚睡</a> <a
+                                        class="tag" href="/tag?tag=">#焦虑</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-title" style="position: relative;">
+                    <h4 style="font-family: var(--font-serify); margin-bottom: .75rem;">📚 PageStop 翻页暂停</h4>
+                    <button class="small-btn"
+                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); border-radius: var(--radius-m);"><span>翻更多页</span><span
+                            class="arrow">→</span></button>
+                </div>
+                <style>
+                    .bookshelf {
+                        display: grid;
+                        grid-template-rows: repeat(1, 1fr);
+                        gap: 1.5rem;
+                        width: 100%;
+                        padding: var(--env-padding);
+                        border-radius: var(--radius-m);
+                        background: #f8f8f8;
+                        border: #eee .1rem solid;
+
+                    }
+
+                    .book-row {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 2rem;
+                    }
+
+                    .book {
+                        display: flex;
+                        flex-direction: column;
+                        /* background: var(--color-bg); */
+                        border-radius: var(--radius);
+                        overflow: hidden;
+                        /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+                        /* transition: transform 0.2s ease, box-shadow 0.2s ease; */
+                    }
+
+                    /* .book:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+                    } */
+                    .book-cover-wrap {
+                        width: 100%;
+                        height: 12rem;
+                        border-bottom: 1px solid var(--color-border);
+                        /* display: flex;
+                        justify-content: center;
+                        align-items: flex-start; */
+                        overflow: hidden;
+                    }
+
+                    .book-cover {
+                        position: relative;
+                        width: 60%;
+                        margin: 0 auto;
+                        border-radius: 0 var(--radius-s) var(--radius-s) 0;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        overflow: hidden;
+                        /* border: 1px solid #fff; */
+                    }
+
+                    .book-cover img {
+                        width: 100%;
+                        object-fit: cover;
+                        /* margin: 0 auto; */
+                        /* border: 1px solid #fff; */
+                    }
+
+                    .book-cover::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 100%;
+                        height: 100%;
+                        /* background: linear-gradient(90deg, rgba(161, 161, 161, 0.25), rgba(21, 21, 20, .1) 1%, hsla(0, 0%, 100%, .15) 4%, hsla(0, 0%, 58%, .1) 8%, hsla(0, 0%, 89%, 0) 57%, rgba(223, 218, 218, .03) 91%, rgba(223, 218, 218, .05) 98%, hsla(0, 0%, 100%, .1)); */
+                        background: linear-gradient(90deg, #a1a1a140, #1515141a 1%, #ffffff36 4%, #9494941a 8%, #e3e3e300 57%, #dfdada08 91%, #dfdada0d 98%, #ffffff1a);
+                    }
+
+                    .book-info {
+                        padding: .5rem 0;
+                        padding-bottom: 0;
+                        display: flex;
+                        flex-direction: column;
+                        /* gap: 0.5rem; */
+                    }
+
+                    .book-title {
+                        font-weight: var(--font-medium);
+                        font-size: var(--font-size-m);
+                        color: var(--color-text);
+                        margin: .25rem 0;
+                    }
+
+                    .book-date {
+                        font-size: var(--font-size-s);
+                        /* color: var(--color-text-secondary, #666); */
+                        /* opacity: 0.8; */
+                    }
+
+                    /* 平板：一行3本 */
+                    @media (max-width: 850px) {
+                        .book-cover {
+                            width: 45%;
+                        }
+
+                        .book-row {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .book-cover {
+                            width: 60%;
+                        }
+
+                        .book-cover-wrap {
+                            height: 10rem;
+                        }
+                    }
+
+                    /* 手机：一行2本 */
+                    @media (max-width: 480px) {
+                        .book-cover-wrap {
+                            height: 8rem;
+                        }
+                    }
+                </style>
+                <!-- 书架 -->
+                <div class="bookshelf">
+                    <div class="book-row">
+                        <div class="book">
+                            <div class="book-cover-wrap">
+                                <div class="book-cover"><img src="https://cdn.weread.qq.com/outpic/95/3004755095.jpg"
+                                        alt="Book Cover"></div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">咸的玩笑</div>
+                                <div class="book-date">刘震云</div>
+                                <div class="book-date">2026-05-10 更新</div>
+                            </div>
+                        </div>
+                        <div class="book">
+                            <div class="book-cover-wrap">
+                                <div class="book-cover"><img class="book-cover"
+                                        src="https://cdn.weread.qq.com/weread/cover/52/cpPlatform_1rgHPAphfdM1c5N4Pu75Ro/t6_cpPlatform_1rgHPAphfdM1c5N4Pu75Ro.jpg"
+                                        alt="Book Cover"></div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">如何用提问解决问题</div>
+                                <div class="book-date">沃伦·贝格尔</div>
+                                <div class="book-date">2026-05-08 更新</div>
+                            </div>
+                        </div>
+                        <div class="book">
+                            <div class="book-cover-wrap">
+                                <div class="book-cover"><img class="book-cover"
+                                        src="https://cdn.weread.qq.com/outpic/281/3001479281.jpg" alt="Book Cover">
+                                </div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">日常生活中的自我呈现</div>
+                                <div class="book-date">欧文·戈夫曼</div>
+                                <div class="book-date">2026-05-05 更新</div>
+                            </div>
+                        </div>
+                        <div class="book">
+                            <div class="book-cover-wrap">
+                                <div class="book-cover"><img class="book-cover"
+                                        src="https://cdn.weread.qq.com/weread/cover/97/cpplatform_7x123kvctlyqqlcf9sttpw/t6_cpplatform_7x123kvctlyqqlcf9sttpw1768969363.jpg"
+                                        alt="Book Cover"></div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">一个女人一生的二十四小时</div>
+                                <div class="book-date">史蒂芬·茨威格</div>
+                                <div class="book-date">2026-05-01 更新</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="book-row">
+                        <div class="book">
+                            <img class="book-cover" src="https://via.placeholder.com/200x300/f5f5f5/333?text=Book+5"
+                                alt="Book Cover">
+                            <div class="book-info">
+                                <div class="book-title">《穷查理宝典》</div>
+                                <div class="book-date">2026-04-28 更新</div>
+                            </div>
+                        </div>
+                        <div class="book">
+                            <img class="book-cover" src="https://via.placeholder.com/200x300/f5f5f5/333?text=Book+6"
+                                alt="Book Cover">
+                            <div class="book-info">
+                                <div class="book-title">《深度工作》</div>
+                                <div class="book-date">2026-04-25 更新</div>
+                            </div>
+                        </div>
+                        <div class="book">
+                            <img class="book-cover" src="https://via.placeholder.com/200x300/f5f5f5/333?text=Book+7"
+                                alt="Book Cover">
+                            <div class="book-info">
+                                <div class="book-title">《高效能人士的七个习惯》</div>
+                                <div class="book-date">2026-04-20 更新</div>
+                            </div>
+                        </div>
+                        <div class="book">
+                            <img class="book-cover" src="https://via.placeholder.com/200x300/f5f5f5/333?text=Book+8"
+                                alt="Book Cover">
+                            <div class="book-info">
+                                <div class="book-title">《反脆弱》</div>
+                                <div class="book-date">2026-04-15 更新</div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-title" style="position: relative;">
+                    <h4 style="font-family: var(--font-serify); margin-bottom: .75rem;">🎙️ Hosts 主持人</h4>
+                    <button class="small-btn"
+                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); border-radius: var(--radius-m);"><span>Ta们来做客</span><span
+                            class="arrow">→</span></button>
+                </div>
+
+                <style>
+                    .host-grid {}
+
+                    .host-card {
+                        min-width: 20rem;
+                    }
+
+                    .memoji-mask {
+                        --temp-reg: 90deg;
+                        background: linear-gradient(var(--temp-reg), #f8f8f8 50%, #f8f8f836 100%);
+                    }
+
+                    .memoji-mask.right {
+                        --temp-reg: 270deg;
+                        /* background: linear-gradient(270deg, #f8f8f8 50%, #f8f8f836 100%); */
+                    }
+
+                    /* @media screen and (max-width: 750px) {
+                        .memoji-mask {
+                            background: #f8f8f8;
+                        }
+                    }
+
+ */
+                    .memoji-under img {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        object-fit: contain;
+                        height: 16rem;
+                        padding: calc(var(--env-padding)/2);
+                    }
+
+                    @media screen and (min-width: 60rem) {
+                        .memoji-mask {
+                            background: none;
+                        }
+                    }
+
+                    @media screen and (max-width: 55rem) {
+                        .memoji-mask {
+                            display: block;
+                        }
+
+                        .memoji-under img {
+                            height: 13rem;
+                        }
+                    }
+
+                    @media screen and (max-width: 50rem) {
+                        .memoji-mask {
+                            display: block;
+                        }
+
+                        .memoji-under img {
+                            height: 10rem;
+                        }
+                    }
+
+                    @media screen and (max-width: 44rem) {
+                        .memoji-mask {
+                            display: none;
+                        }
+
+                        .memoji-under img {
+                            height: 13rem;
+                        }
+                    }
+
+                    @media screen and (max-width: 25rem) {
+                        .memoji-mask {
+                            display: block;
+                        }
+
+                        .memoji-under img {
+                            height: 10rem;
+                        }
+                    }
+
+                    @media screen and (max-width: 20rem) {
+                        .host-card {
+                            min-width: 10rem;
+                        }
+
+                        .memoji-under {
+                            display: none;
+                        }
+                    }
+
+                    /*  */
+                </style>
+                <div class="host-grid" style="width:100%; display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <div class="host-card"
+                        style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: start; justify-content: center; padding: 1.5rem; border: #eee 1px solid; border-radius: var(--radius-m); gap: 1rem 0; background: #f8f8f8; overflow: hidden;">
+                        <div class="memoji-under"
+                            style="z-index: 1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                            <img style="" src="./asset/creator/local-wu/memoji-large.png" alt="">
+                        </div>
+                        <div class="memoji-mask"
+                            style="z-index: 1; position: absolute; top: 0; left: 0;  width: 100%; height: 100%; border-radius: var(--radius-m); ">
+                        </div>
+                        <div
+                            style="z-index: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 1rem;">
+                            <div class="avatar"
+                                style="background-color: var(--color-focus); width: 3.5rem; height: 3.5rem; font-weight: var(--font-extrabold); color: var(--color-on-primary); border-radius: var(--radius-f); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="https://image.xyzcdn.net/Ft2_o9eFphiMRQs4_x1w72ZAdb58.jpg@small" alt="">
+                            </div>
+                            <div class="ids" style="display: flex; flex-direction: column;"><span
+                                    style="font-size: var(--font-size-m); font-weight: var(--font-semibold);">LocalWu</span>
+                                <small style="font-weight: var(--font-medium);">SparkTime 主播</small>
+                            </div>
+
+                        </div>
+                        <span style="z-index: 1; text-align: left;">独立软件开发者，设计师<br />感性感受温度，经历转变觉察</span>
+                        <div class="host-info"
+                            style="z-index: 1; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: .5rem;">
+                            <button class="small-btn">🌐</button>
+                            <button class="small-btn">📧</button>
+                            <button class="small-btn">📖</button>
+                            <!-- <a class="info-platform" href="https://localwu.com"
+                                style="display: block; width: 2rem; height: 2rem; line-height: 2; text-decoration: none; border-radius: var(--radius-f); background: var(--color-on-primary); display: flex; align-content: center; justify-content: center;">🌐</a>
+                            <a class="info-platform" href="mailto:localwu@sparktime.lcoalwu.com"
+                                style="display: block; width: 2rem; height: 2rem; line-height: 2; text-decoration: none; border-radius: var(--radius-f); background: var(--color-on-primary); display: flex; align-content: center; justify-content: center;">📧</a>
+                            <a class="info-platform" href="https://xiaohongshu.com/localwu"
+                                style="display: block; width: 2rem; height: 2rem; line-height: 2; text-decoration: none; border-radius: var(--radius-f); background: var(--color-on-primary); display: flex; align-content: center; justify-content: center;">📖</a> -->
+
+                        </div>
+
+                    </div>
+                    <div class="host-card"
+                        style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: end; justify-content: center; padding: 1.5rem; border: #eee 1px solid; border-radius: var(--radius-m); gap: 1rem 0; background: #f8f8f8; overflow: hidden;">
+                        <div class="memoji-under"
+                            style="z-index: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                            <img style="position: absolute; top: 0; left: 0; object-fit: contain; padding: calc(var(--env-padding)/2); margin-top: .75rem;"
+                                src="./asset/creator/lydia-j/memoji-large.png" alt="">
+                        </div>
+                        <div class="memoji-mask right"
+                            style="z-index: 1; position: absolute; top: 0; left: 0;  width: 100%; height: 100%; border-radius: var(--radius-m); ">
+                        </div>
+                        <div
+                            style="z-index: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 1rem;">
+                            <div class="avatar"
+                                style="background-color: var(--color-focus); width: 3.5rem; height: 3.5rem; font-weight: var(--font-extrabold); color: var(--color-on-primary); border-radius: var(--radius-f); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="https://image.xyzcdn.net/FoXB8HUMOxQ7CVu-pgC_HO2-PKO0.jpg@small" alt="">
+                            </div>
+                            <div class="ids" style="display: flex; flex-direction: column;"><span
+                                    style="font-size: var(--font-size-m); font-weight: var(--font-semibold);">LydiaJ</span>
+                                <small style="font-weight: var(--font-medium);">SparkTime 主播</small>
+                            </div>
+                        </div>
+                        <span style="z-index: 1; text-align: right;">门店主理人，法学学生<br />理性的容纳XXXXXXXXXXXXXXX</span>
+                        <div class="host-info"
+                            style="z-index: 1; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: .5rem;">
+                            <!-- <a class="info-platform" href="mailto:lydiaj@sparktime.lcoalwu.com"
+                                style="display: block; width: 2rem; height: 2rem; line-height: 2; text-decoration: none; border-radius: var(--radius-f); background: var(--color-on-primary); display: flex; align-content: center; justify-content: center;">📧</a>
+                            <a class="info-platform" href="https://xiaohongshu.com/lydiaj"
+                                style="display: block; width: 2rem; height: 2rem; line-height: 2; text-decoration: none; border-radius: var(--radius-f); background: var(--color-on-primary); display: flex; align-content: center; justify-content: center;">📖</a> -->
+                            <button class="small-btn">📧</button>
+                            <button class="small-btn">📖</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="end-line">
+                    <button class="small-btn"><span>主播 & 嘉宾列表</span><span class="arrow">→</span></button>
+                </div> -->
+            </section>
+        </main>
+
+        <footer
+            style="position: relative; width: 100%; min-height: 15rem; display: flex; flex-direction: column; justify-content: space-between; align-items: center; color: var(--color-on-primary); font-size: var(--font-size-s); background: var(--color-primary); padding: 1.5rem 1.75rem; border-radius: var(--radius-m) var(--radius-m) 0 0; cursor: default;">
+            <div class="footer-logo" style="position: absolute; top: 1.5rem; left: 1.75rem;">
+                <svg style="display: inline-block; width: 5em; height: 5em; color: var(--color-on-primary);" width="190"
+                    height="190" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+                    <g transform="translate(-545 -265)">
+                        <path
+                            d="M612 360C612 344.536 624.536 332 640 332 655.464 332 668 344.536 668 360 668 375.464 655.464 388 640 388 624.536 388 612 375.464 612 360Z"
+                            fill="var(--color-primary-hover)" fill-rule="evenodd" />
+                        <path
+                            d="M619.239 344.532C620.501 327.97 618.102 290.905 628.381 277.167 638.67 263.428 666.426 261.636 670.646 275.885 674.875 290.125 650.087 330.321 654.201 338.134 656.667 342.181 676.937 320.156 691.225 315.011 705.512 309.876 715.233 313.874 720.946 322.719 726.668 331.573 730.204 351.083 719.809 359.301 709.404 367.52 666.879 360.063 668.941 363.791 671.003 367.52 720.146 369.562 730.089 377.906 740.041 386.249 729.058 398.187 718.662 405.499 708.258 412.812 689.047 420.635 678.084 414.479 667.11 408.322 666.34 370.343 663.825 374.698 661.301 379.062 671.927 421.271 665.53 436.292 659.133 451.312 637.649 459.53 631.821 449.77 625.982 440.02 639.672 391.895 636.821 390.354 633.969 388.822 628.285 434.5 617.533 442.063 606.782 449.635 581.627 437.718 582.658 425.395 583.689 413.072 624.007 385.989 620.462 381.885 616.917 377.781 579.575 410.885 564.941 404.854 550.306 398.823 540.374 357.365 549.507 350.303 558.65 343.25 607.928 374.698 610.664 369.562 613.41 364.427 565.519 340.167 563.235 324.646 560.943 309.115 588.371 282.417 599.238 291.917 610.096 301.417 609.373 350.014 619.431 368.878 629.489 387.733 646.368 382.675 653.353 378.715 663.642 372.597 664.278 358.935 660.607 349.821 656.937 340.707 641.021 331.785 628.295 341.034 620.346 346.796 624.884 362.481 621.917 362.606 618.949 362.731 617.986 361.094 619.239 344.532Z"
+                            fill="currentColor" fill-rule="evenodd" />
+                    </g>
+                </svg><span style="display: inline-block; transform: translate(-.15rem, -3.5rem);">™</span>
+                <!-- <input type="text" placeholder="Search" class="search-bar"
+                    style="margin-top: 1rem; background: var(--color-on-primary);" /> -->
+            </div>
+            <div class="footer-links"
+                style="width: 100%; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; margin-bottom: 4rem;">
+                <div class="logo-cleanarea" style="width: 8rem; height: 8rem; flex-shrink: 0;">
+                </div>
+                <div class="links-duo"
+                    style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: start; gap: 2rem 4rem;">
+
+                    <div class="links first-linkgroup"
+                        style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-start; align-items: start; flex-shrink: 0;">
+                        <span style="font-weight: var(--font-semibold); margin-bottom: .5rem;">Find us at 我们在</span>
+                        <a href="/rss">RSS 订阅</a>
+                        <a href="/spktm">小宇宙 ↗</a>
+                        <a href="/spktm">Apple 播客 ↗</a>
+                        <a href="/spktm">喜马拉雅 ↗</a>
+                        <a href="/spktm">小红书 ↗</a>
+                        <a href="/spktm">哔哩哔哩 ↗</a>
+                        <a href="/spktm">YouTube ↗</a>
+                    </div>
+
+                    <div class="links"
+                        style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-start; align-items: start;flex-shrink: 0;">
+                        <span style="font-weight: var(--font-semibold); margin-bottom: .5rem;">Projects 项目</span>
+                        <a href="/podcast">Podcast 播客</a>
+                        <a href="/on-the-way">OnTheWay 散步途中</a>
+                        <a href="/page-stop">PageStop 翻页暂停</a>
+                        <a href="/newsletter">Newsletter 通讯简报</a>
+                        <a href="/sounds">Sounds 心声</a>
+                    </div>
+                    <div class="links"
+                        style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-start; align-items: start;flex-shrink: 0;">
+                        <span style="font-weight: var(--font-semibold); margin-bottom: .5rem;">Angles 角度</span>
+                        <a href="/show-note">ShowNote 节目详情</a>
+                        <a href="/word-for-word">Wfw 节目逐字稿</a>
+                        <a href="/inspired">Inspired 启发与影响</a>
+                    </div>
+
+                    <div class="links"
+                        style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-start; align-items: start;flex-shrink: 0;">
+                        <span style="font-weight: var(--font-semibold); margin-bottom: .5rem;">More 更多</span>
+                        <a href="/visual-system">SPKTM VI 品牌设计</a>
+                        <a href="/about">About 关于我们</a>
+                        <a href="/about#the-contact">Contact 联系我们</a>
+                        <a href="/about#the-feedback">Feedback 反馈建议</a>
+                        <a href="/go?to=">Zhuiguang 追光平台 ↗</a>
+                        <a href="/go?to=account.localwu.com&param=from!xxx&protocal=s">Backstage 后台登录 ↗</a>
+                    </div>
+                    <div class="links"
+                        style="display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-start; align-items: start;flex-shrink: 0;">
+                        <span style="font-weight: var(--font-semibold); margin-bottom: .5rem;">Privacy 隐私</span>
+                        <a href="/agreement/user-protocal">用户协议</a>
+                        <a href="/agreement/privacy-policy">隐私政策</a>
+                        <a href="/agreement/disclaimer">免责声明</a>
+                        <a href="/agreement/how-we-manage-your-cookies">Cookies</a>
+                        <!-- <span style="font-weight: var(--font-semibold); margin-bottom: .5rem;">Language 语言</span> -->
+                        <br />
+                        <span id="languageBtns"><span id="zh-cn" class="span-btn btn-active">简体中文</span> / <span
+                                id="en-us" class="span-btn">English</span></span>
+                        <br />
+                        <span id="themeBtns"><span id="lightThemeBtn" class="span-btn">浅色</span> / <span
+                                id="darkThemeBtn" class="span-btn">深色</span>
+                            / <span id="sysThemeBtn" class="span-btn btn-active">自动</span>
+
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap;">
+                <div
+                    style="width: 100%; margin-bottom: .5rem; display: flex; flex-direction: row; flex-wrap: wrap; gap: .25rem .5rem;">
+                    <div class="subscribe-data"
+                        style="width: fit-content; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-s); padding: .1rem .3rem; border-radius: var(--radius); border: var(--color-on-primary) .1rem solid;">
+                        总订阅量&nbsp;<span class="subscribe-count"
+                            style="font-family: var(--font-serif);font-weight: var(--font-semibold); font-variant-numeric: oldstyle-nums;">5</span>
+                    </div>
+
+                    <div class="subscribe-data"
+                        style="width: fit-content; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-s); padding: .1rem .3rem; border-radius: var(--radius); border: var(--color-on-primary) .1rem solid;">
+                        总播放量&nbsp;<span class="play-count"
+                            style="font-family: var(--font-serif);font-weight: var(--font-semibold); font-variant-numeric: oldstyle-nums;">44</span>
+                    </div>
+                </div>
+                <span
+                    style="display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: .25rem;">Copyright
+                    ©
+                    2024-2026
+                    <!-- <svg style="display: inline-block; width: 1em; height: 1em; color: var(--color-on-primary);"
+                        width="190" height="190" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+                        <g transform="translate(-545 -265)">
+                            <path
+                                d="M612 360C612 344.536 624.536 332 640 332 655.464 332 668 344.536 668 360 668 375.464 655.464 388 640 388 624.536 388 612 375.464 612 360Z"
+                                fill="var(--color-primary-hover)" fill-rule="evenodd" />
+                            <path
+                                d="M619.239 344.532C620.501 327.97 618.102 290.905 628.381 277.167 638.67 263.428 666.426 261.636 670.646 275.885 674.875 290.125 650.087 330.321 654.201 338.134 656.667 342.181 676.937 320.156 691.225 315.011 705.512 309.876 715.233 313.874 720.946 322.719 726.668 331.573 730.204 351.083 719.809 359.301 709.404 367.52 666.879 360.063 668.941 363.791 671.003 367.52 720.146 369.562 730.089 377.906 740.041 386.249 729.058 398.187 718.662 405.499 708.258 412.812 689.047 420.635 678.084 414.479 667.11 408.322 666.34 370.343 663.825 374.698 661.301 379.062 671.927 421.271 665.53 436.292 659.133 451.312 637.649 459.53 631.821 449.77 625.982 440.02 639.672 391.895 636.821 390.354 633.969 388.822 628.285 434.5 617.533 442.063 606.782 449.635 581.627 437.718 582.658 425.395 583.689 413.072 624.007 385.989 620.462 381.885 616.917 377.781 579.575 410.885 564.941 404.854 550.306 398.823 540.374 357.365 549.507 350.303 558.65 343.25 607.928 374.698 610.664 369.562 613.41 364.427 565.519 340.167 563.235 324.646 560.943 309.115 588.371 282.417 599.238 291.917 610.096 301.417 609.373 350.014 619.431 368.878 629.489 387.733 646.368 382.675 653.353 378.715 663.642 372.597 664.278 358.935 660.607 349.821 656.937 340.707 641.021 331.785 628.295 341.034 620.346 346.796 624.884 362.481 621.917 362.606 618.949 362.731 617.986 361.094 619.239 344.532Z"
+                                fill="currentColor" fill-rule="evenodd" />
+                        </g>
+                    </svg><span style="transform: translateX(-.15rem);">™</span> -->
+                    <span
+                        style="display: flex; flex-direction: row; flex-wrap: nowrap; font-style: oblique; letter-spacing: -.03em;">Sp<i
+                            style="display: inline-block; width: fit-content; height: fit-content; font-style: normal; transform: skew(-10deg,0deg) translateX(.025em);">a</i>rkTime<span
+                            style="font-style: normal;">™</span></span>
+                    这会儿有空™ .&nbsp;</span>
+                <span>Presented by <a href="https://localwu.com">LocalWu</a> &
+                    <a href="https://xiaohongshu.com">LydiaJ</a>.&nbsp;</span>
+                <span>All Rights Reserved.</span>
+            </div>
+        </footer>
+        <!-- 暗色模式切换脚本 -->
+
+    </div>
+
+</body>
+
+</html>
