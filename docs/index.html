@@ -15,73 +15,21 @@
     <link rel="icon" type="image/png" sizes="128x128" href="static/branding/icon/icon-main.png">
     <link rel="icon" type="image/png" sizes="256x256" href="static/branding/icon/icon-main-medium.png">
     <link rel="icon" type="image/png" sizes="512x512" href="static/branding/icon/icon-main-large.png">
+    <script>
+        (function () { let tempDate = new Date(); const isLocalDev = ['localhost', '127.0.0.1', '::1'].includes(location.hostname) || location.hostname.endsWith('.local'); if (isLocalDev) { const sizes = ['64x64', '128x128', '256x256', '512x512']; const suffixes = ['-small', '', '-medium', '-large']; const existingIcons = document.querySelectorAll('link[rel="icon"]'); existingIcons.forEach(icon => icon.remove()); sizes.forEach((size, i) => { const link = document.createElement('link'); link.rel = 'icon'; link.type = 'image/png'; link.sizes = size; link.href = `static/branding/icon/icon-dev${suffixes[i]}.png?v=${tempDate.getTime()}`; document.head.appendChild(link); }); } })();
+    </script>
     <link rel="apple-touch-icon" sizes="180x180" href="static/branding/apple-touch-icon/icon-main-180.png">
     <link rel="apple-touch-icon" sizes="167x167" href="static/branding/apple-touch-icon/icon-main-167.png">
     <link rel="apple-touch-icon" sizes="152x152" href="static/branding/apple-touch-icon/icon-main-152.png">
     <link rel="apple-touch-icon" sizes="120x120" href="static/branding/apple-touch-icon/icon-main-120.png">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preload" as="style" href="https://rsms.me/inter/inter.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    </noscript>
     <link rel="stylesheet" href="static/basss/v0.1.1/basss.css">
     <link rel="stylesheet" href="page/index/style.css">
-    <script>
-        (function () {
-            // 判断是否为本地开发环境
-            const isLocalDev = ['localhost', '127.0.0.1', '::1'].includes(location.hostname) || location.hostname.endsWith('.local');
 
-            if (isLocalDev) {
-                const sizes = ['64x64', '128x128', '256x256', '512x512'];
-                const suffixes = ['-small', '', '-medium', '-large'];
-
-                // 移除原有的 icon 链接
-                const existingIcons = document.querySelectorAll('link[rel="icon"]');
-                existingIcons.forEach(icon => icon.remove());
-
-                // 添加开发专用图标（每种尺寸添加一次即可，无需重复两次）
-                sizes.forEach((size, i) => {
-                    const link = document.createElement('link');
-                    link.rel = 'icon';
-                    link.type = 'image/png';
-                    link.sizes = size;
-                    link.href = `static/branding/icon/icon-dev${suffixes[i]}.png`;
-                    document.head.appendChild(link);
-                });
-            }
-
-            const html = document.documentElement;
-
-            // 从 localStorage 获取保存的主题偏好，默认为 'system'
-            const savedTheme = localStorage.getItem('themePreference') || 'sys';
-
-            function setTheme(theme) {
-                // 移除所有 active 状态
-                document.querySelectorAll('#themeBtns span').forEach(btn => {
-                    btn.classList.remove('btn-active');
-                });
-
-                // 设置新主题
-                if (theme === 'sys') {
-                    html.removeAttribute('data-theme');
-                } else {
-                    html.setAttribute('data-theme', theme);
-                }
-
-                // 高亮对应按钮
-                document.getElementById(`${theme}ThemeBtn`).classList.add('btn-active');
-
-                // 保存主题偏好到 localStorage
-                localStorage.setItem('themePreference', theme);
-            }
-
-            // 页面加载时应用保存的主题
-
-            // 绑定事件
-            window.addEventListener('load', () => {
-                setTheme(savedTheme);
-                document.getElementById('lightThemeBtn').addEventListener('click', () => setTheme('light'));
-                document.getElementById('darkThemeBtn').addEventListener('click', () => setTheme('dark'));
-                document.getElementById('sysThemeBtn').addEventListener('click', () => setTheme('sys'));
-            });
-        })();
-    </script>
 </head>
 
 <body>
@@ -1131,7 +1079,7 @@
                         <br />
                         <span id="themeBtns"><span id="lightThemeBtn" class="span-btn">浅色</span> / <span
                                 id="darkThemeBtn" class="span-btn">深色</span>
-                            / <span id="sysThemeBtn" class="span-btn btn-active">自动</span>
+                            / <span id="sysThemeBtn" class="span-btn">自动</span>
 
                     </div>
                 </div>
@@ -1177,8 +1125,44 @@
                 <span>All Rights Reserved.</span>
             </div>
         </footer>
-        <!-- 暗色模式切换脚本 -->
+        <script>
+            (function () {
+                const html = document.documentElement;
 
+                // 从 localStorage 获取保存的主题偏好，默认为 'light'
+                const savedTheme = localStorage.getItem('sparktime.localwu.com' + '-' + 'themePreference') || 'light';
+
+                function setTheme(theme) {
+                    // 移除所有 active 状态
+                    document.querySelectorAll('#themeBtns span').forEach(btn => {
+                        btn.classList.remove('btn-active');
+                    });
+
+                    // 设置新主题
+                    if (theme === 'sys') {
+                        html.removeAttribute('data-theme');
+                    } else {
+                        html.setAttribute('data-theme', theme);
+                    }
+
+                    // 高亮对应按钮
+                    document.getElementById(`${theme}ThemeBtn`).classList.add('btn-active');
+
+                    // 保存主题偏好到 localStorage
+                    localStorage.setItem('sparktime.localwu.com' + '-' + 'themePreference', theme);
+                }
+
+                // 页面加载时应用保存的主题
+
+                // 绑定事件
+                window.addEventListener('DOMContentLoaded', () => {
+                    setTheme(savedTheme);
+                    document.getElementById('lightThemeBtn').addEventListener('click', () => setTheme('light'));
+                    document.getElementById('darkThemeBtn').addEventListener('click', () => setTheme('dark'));
+                    document.getElementById('sysThemeBtn').addEventListener('click', () => setTheme('sys'));
+                });
+            })();
+        </script>
     </div>
 
 </body>

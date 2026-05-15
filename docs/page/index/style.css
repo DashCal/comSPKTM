@@ -53,6 +53,7 @@
     --env-padding: 2rem;
     --env-gap: 2rem;
     --env-max-width: 75rem;
+    --hero-mask-ratio: 600px;
 }
 
 ::selection {
@@ -272,7 +273,7 @@ footer span .btn-active {
     }
 }
 
-@media screen and (max-width: 6100px) {
+/* @media screen and (max-width: 6100px) {
     :root {
         --hero-mask-ratio: 16%;
     }
@@ -343,12 +344,13 @@ footer span .btn-active {
     :root {
         --hero-mask-ratio: 80%;
     }
-}
+} */
 
 @media screen and (max-width: 600px) {
     :root {
         --env-padding: 1.5rem;
         --env-gap: 2.5rem;
+        --hero-mask-ratio: 500px;
     }
 }
 
@@ -361,6 +363,7 @@ footer span .btn-active {
 @media screen and (max-width: 500px) {
     :root {
         --font-size: 14px;
+        --hero-mask-ratio: 400px;
     }
 }
 
@@ -371,5 +374,6 @@ footer span .btn-active {
         --font-size: 13px;
         --env-padding: 2rem;
         --env-gap: 3rem;
+        --hero-mask-ratio: 300px;
     }
 }
