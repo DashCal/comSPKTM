@@ -1,3 +1,7 @@
 /favicon.ico
   Content-Type: image/x-icon
   Cache-Control: max-age=86400
+
+/favicon.png
+  Content-Type: image/png
+  Cache-Control: max-age=86400
